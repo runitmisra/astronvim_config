@@ -52,6 +52,15 @@ return {
     servers = {
       -- "pyright"
     },
+    config = {
+      helm_ls = function()
+        return {
+          cmd = { "helm_ls", "serve" },
+          filetypes = { "helm" },
+          root_dir = require("lspconfig.util").root_pattern("Chart.yaml")
+        }
+      end,
+    },
   },
 
   -- Configure require("lazy").setup() options
